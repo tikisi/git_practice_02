@@ -1,0 +1,45 @@
+#include "hsp3dish.as"
+
+gosub *init
+
+;メインループ
+*main
+    redraw 0
+        gosub *draw
+    redraw 1
+    await 50
+    goto *main
+
+;答えの計算
+*calc
+
+    goto *main
+
+;ボタンがクリックされたとき
+*clicked
+    A=int(strA)
+    B=int(strB)
+    goto *calc
+
+;初期化処理
+*init
+    strA="":strB="":OP=""
+    drawY=ginfo_winy/2 - 50 ;描画する高さ
+    pos 50, drawY
+    input strA, 100, 50     ;入力ボックス(数値1)
+    pos 120, drawY
+    input OP, 100, 50       ;入力ボックス(演算子)
+    pos 190, drawY
+    input strB, 100, 50     ;入力ボックス(数値2)
+    pos 300, drawY + 50
+    button "計算", *clicked
+    ans=0
+    return
+
+;描画
+*draw
+    pos 260, drawY
+    mes "="
+    pos 280, drawY
+    mes str(ans)
+    return
