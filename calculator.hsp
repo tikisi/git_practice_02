@@ -12,6 +12,7 @@ gosub *init
 
 ;答えの計算
 *calc
+    if OP="+" : ans=A+B     ;足し算
 
     goto *main
 
