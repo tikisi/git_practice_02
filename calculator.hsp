@@ -16,6 +16,7 @@ gosub *init
     if OP="-" : ans=A-B     ;引き算
     if OP="*" : ans=A*B     ;掛け算
     if OP="/" : ans=A/B     ;割り算
+    if OP="\\" : ans=A\B    ;剰余算
 
     goto *main
 
